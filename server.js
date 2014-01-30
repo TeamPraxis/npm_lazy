@@ -1,4 +1,5 @@
 var http = require('http'),
+    https = require('https'),
     path = require('path'),
     fs = require('fs'),
     log = require('minilog')('app'),
@@ -40,7 +41,12 @@ function start(config) {
   Package.configure(packageConfig);
   api.configure(packageConfig);
 
-  var server = http.createServer();
+  var server;
+  if (config.sslOpts) {
+      server = https.createServer(config.sslOpts);
+  } else {
+      server = http.createServer();
+  }
 
   server.on('request', function(req, res) {
     if (!api.route(req, res)) {

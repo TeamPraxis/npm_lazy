@@ -13,6 +13,15 @@ module.exports = {
     filename: 'npm_lazy.log'
   },
 
+  // SSL config:
+  //   If you wish to run the server in SSL mode, uncomment and configure the following.
+
+  // sslOpts: {
+  //   key: fs.readFileSync('/path/to/private-key.pem'),
+  //   cert: fs.readFileSync('/path/to/certificate.crt'),
+  //   ca: fs.readFileSync('/path/to/ca.crt')
+  // },
+
   // Cache config
 
   // `cacheDirectory`: Directory to store cached packages.
